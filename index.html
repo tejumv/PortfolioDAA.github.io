@@ -142,11 +142,36 @@
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
         .team-info button:hover {
             background-color: #e89aa7; /* Slightly darker pink */
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Bubble Effect Styles */
+        .bubble {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 182, 193, 0.7); /* Light pink bubble */
+            border-radius: 50%;
+            animation: bubble-animation 1s forwards;
+        }
+
+        @keyframes bubble-animation {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+                top: -50px;
+                left: -50px;
+            }
         }
 
         footer {
@@ -215,7 +240,7 @@
         <!-- New section below the team names -->
         <div class="team-info">
             <p>Come Let's Know The Members</p>
-            <button onclick="window.location.href='team-members.html'">Click Here</button> <!-- Button to open a new page -->
+            <button onclick="showBubbles()">Click Here</button> <!-- Button to trigger the bubble effect -->
         </div>
     </section>
 
@@ -228,5 +253,26 @@
     <footer>
         <p>&copy; 2025 Team Portfolio. All rights reserved.</p>
     </footer>
+
+    <script>
+        function showBubbles() {
+            for (let i = 0; i < 10; i++) { // Number of bubbles
+                let bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                document.body.appendChild(bubble);
+
+                // Set random positions for each bubble
+                let randomX = Math.random() * window.innerWidth;
+                let randomY = Math.random() * window.innerHeight;
+                bubble.style.left = randomX + 'px';
+                bubble.style.top = randomY + 'px';
+
+                // Remove the bubble after animation
+                setTimeout(() => {
+                    bubble.remove();
+                }, 1000);
+            }
+        }
+    </script>
 </body>
 </html>
