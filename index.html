@@ -125,6 +125,30 @@
             text-decoration: underline;
         }
 
+        .team-info {
+            font-size: 1.2rem;
+            color: #ffb6c1; /* Light pink */
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .team-info button {
+            background-color: #ffb6c1; /* Light pink */
+            color: #1a1a1a; /* Black text */
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-info button:hover {
+            background-color: #e89aa7; /* Slightly darker pink */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
         footer {
             background-color: #ffb6c1; /* Light pink */
             color: #1a1a1a; /* Black text */
@@ -187,6 +211,12 @@
                 <p>Team Member</p>
             </div>
         </div>
+
+        <!-- New section below the team names -->
+        <div class="team-info">
+            <p>Come Let's Know The Members</p>
+            <button onclick="window.location.href='team-members.html'">Click Here</button> <!-- Button to open a new page -->
+        </div>
     </section>
 
     <section id="contact" class="info-section">
@@ -200,3 +230,4 @@
     </footer>
 </body>
 </html>
+
