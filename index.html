@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Plan - Amarapalli</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -16,35 +15,63 @@
         }
 
         header {
-            background-color: #FFB6C1;
-            color: black;
-            padding: 20px;
+            background-color: #00d9ff;
+            color: #000;
+            padding: 10px 0;
             text-align: center;
         }
 
-        .intro-content {
-            background-color: #333;
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        section {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background: #333;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            font-size: 2rem;
+        header h1 {
             margin: 0;
+            font-size: 1.8rem;
         }
 
-        h2 {
-            color: #FFB6C1;
+        nav {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content-section {
+            background-color: #000;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #00d9ff;
+            margin-bottom: 10px;
+        }
+
+        .content-section p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .intro-section {
+            background-color: #000;
+            padding: 20px;
+            color: #fff;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-section h2 {
+            color: #00d9ff;
+            margin-bottom: 10px;
         }
 
         ul {
@@ -54,66 +81,51 @@
 
         ul li {
             margin: 10px 0;
-            background: #444;
+            background: #111;
             padding: 10px;
-            border-left: 4px solid #FFB6C1;
+            border-left: 4px solid #00d9ff;
         }
 
-        p {
-            margin: 10px 0;
-        }
-
-        a {
-            color: #FFB6C1;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        button {
-            background-color: #FFB6C1;
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #00d9ff;
             color: #000;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #ff9bae;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Introduction</h1>
+        <h1>CITY DESIGN</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Project</a>
+        </nav>
+    </header>
+
+    <div class="intro-section">
+        <h2>Introduction</h2>
         <p>Course: DAA</p>
         <p>Course Code: 24ECAC203</p>
         <p>Course Instructor: Prof. Vijayalakshmi S</p>
         <p>University: KLE Technological University</p>
         <p>Topic: City Design</p>
-    </header>
+    </div>
 
-    <div class="intro-content">
-        <h2>📚 What is the course about?</h2>
+    <div class="content-section">
+        <h2>What is the course about?</h2>
         <p>Design and analysis of algorithms is more than a branch of computer science. It is the core of computer science, and, in all fairness, can be said to be relevant to most of science, business, and technology. The course is about understanding the interesting patterns existing in nature as many natural processes can inspire computational algorithms and vice versa. It helps in the development of analytical thinking which can help in various problem-solving strategies.</p>
 
-        <h2>📂 What kind of data structures and algorithms have you studied?</h2>
+        <h2>What kind of data structures and algorithms have you studied?</h2>
         <p>Exploring data structures feels like a journey through a fascinating family. From the continuity of memory blocks in arrays and strings to the interlinked nature of web pages seen in linked lists, each structure tells a story. Stacks and queues evoke everyday images of biscuit piles and waiting lines, while trees and tries expand our understanding into hierarchies and efficient searches. Skip lists, inspired by coin tosses, add an element of randomness with precision.</p>
 
-        <h2>🔗 How do you connect the course with real-time applications?</h2>
+        <h2>How do you connect the course with real-time applications?</h2>
         <p>We are both aware and oblivious to the algorithms that permeate our lives, much like the omnipresent air we breathe. Dijkstra’s Algorithm guides us home through GPS, ensuring the quickest route, while sorting algorithms manage massive datasets in e-commerce platforms. These algorithms take complex challenges and carve them into elegant solutions, quietly enhancing our daily technological interactions and making our digital experiences smoother and more intuitive. They are the invisible hands that optimize, protect, and personalize the technology we rely on every day.</p>
     </div>
 
-    <section>
-        <h2>Team Members</h2>
-        <ul>
-            <li>Ayesha Maniyar - 01fe23bci007</li>
-            <li>Tejaswini M V - 01fe23bci044</li>
-            <li>Gouri Banapurmath - 01fe23bci079</li>
-        </ul>
-    </section>
+    <footer>
+        <p>&copy; 2025 City Design. All rights reserved.</p>
+    </footer>
 </body>
 </html>
