@@ -18,17 +18,16 @@
         header {
             background-color: #FFB6C1;
             color: black;
-            padding: 40px 20px;
+            padding: 20px;
             text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        header p {
-            margin: 5px 0;
+        .intro-content {
+            background-color: #333;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         section {
@@ -37,6 +36,11 @@
             margin: auto;
             background: #333;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
         }
 
         h2 {
@@ -55,8 +59,8 @@
             border-left: 4px solid #FFB6C1;
         }
 
-        p, dl {
-            margin: 15px 0;
+        p {
+            margin: 10px 0;
         }
 
         a {
@@ -66,14 +70,6 @@
 
         a:hover {
             text-decoration: underline;
-        }
-
-        blockquote {
-            margin: 20px 0;
-            padding: 10px;
-            background: #444;
-            border-left: 4px solid #FFB6C1;
-            font-style: italic;
         }
 
         button {
@@ -100,14 +96,7 @@
         <p>Topic: City Design</p>
     </header>
 
-    <section>
-        <h2>Team Members</h2>
-        <ul>
-            <li>Ayesha Maniyar - 01fe23bci007</li>
-            <li>Tejaswini M V - 01fe23bci044</li>
-            <li>Gouri Banapurmath - 01fe23bci079</li>
-        </ul>
-
+    <div class="intro-content">
         <h2>📚 What is the course about?</h2>
         <p>Design and analysis of algorithms is more than a branch of computer science. It is the core of computer science, and, in all fairness, can be said to be relevant to most of science, business, and technology. The course is about understanding the interesting patterns existing in nature as many natural processes can inspire computational algorithms and vice versa. It helps in the development of analytical thinking which can help in various problem-solving strategies.</p>
 
@@ -116,6 +105,15 @@
 
         <h2>🔗 How do you connect the course with real-time applications?</h2>
         <p>We are both aware and oblivious to the algorithms that permeate our lives, much like the omnipresent air we breathe. Dijkstra’s Algorithm guides us home through GPS, ensuring the quickest route, while sorting algorithms manage massive datasets in e-commerce platforms. These algorithms take complex challenges and carve them into elegant solutions, quietly enhancing our daily technological interactions and making our digital experiences smoother and more intuitive. They are the invisible hands that optimize, protect, and personalize the technology we rely on every day.</p>
+    </div>
+
+    <section>
+        <h2>Team Members</h2>
+        <ul>
+            <li>Ayesha Maniyar - 01fe23bci007</li>
+            <li>Tejaswini M V - 01fe23bci044</li>
+            <li>Gouri Banapurmath - 01fe23bci079</li>
+        </ul>
     </section>
 </body>
 </html>
