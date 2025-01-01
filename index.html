@@ -9,12 +9,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #1a1a1a; /* Black background */
+            color: #f4f4f4; /* Light text for better readability */
         }
 
         header {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #ffb6c1; /* Light pink */
+            color: #1a1a1a; /* Black text */
             padding: 1rem 0;
             text-align: center;
         }
@@ -24,8 +25,32 @@
             font-size: 2.5rem;
         }
 
+        .nav-buttons {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .nav-buttons a {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            color: #1a1a1a; /* Black text */
+            background-color: #ffb6c1; /* Light pink button */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-buttons a:hover {
+            background-color: #ffa0b5; /* Darker pink on hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
         .info-section {
-            background-color: #e9f5e9;
+            background-color: #2a2a2a; /* Slightly lighter black */
             padding: 2rem;
             margin: 1rem;
             border-radius: 10px;
@@ -33,13 +58,13 @@
 
         .info-section h2 {
             font-size: 2rem;
-            color: #333;
+            color: #ffb6c1; /* Light pink */
             text-align: center;
         }
 
         .info-section p {
             font-size: 1rem;
-            color: #555;
+            color: #cccccc; /* Light gray text */
             line-height: 1.6;
         }
 
@@ -50,7 +75,7 @@
 
         .team-section h2 {
             font-size: 2rem;
-            color: #333;
+            color: #ffb6c1; /* Light pink */
         }
 
         .team {
@@ -62,12 +87,12 @@
         }
 
         .team-member {
-            background-color: white;
-            border: 1px solid #ddd;
+            background-color: #2a2a2a; /* Slightly lighter black */
+            border: 1px solid #444; /* Dark gray border */
             border-radius: 10px;
             padding: 1rem;
             width: 200px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
 
@@ -80,18 +105,18 @@
         .team-member h3 {
             margin: 0.5rem 0;
             font-size: 1.2rem;
-            color: #555;
+            color: #ffb6c1; /* Light pink */
         }
 
         .team-member p {
             margin: 0.5rem 0;
             font-size: 1rem;
-            color: #777;
+            color: #cccccc; /* Light gray text */
         }
 
         .team-member a {
             text-decoration: none;
-            color: #4CAF50;
+            color: #ffb6c1; /* Light pink */
             font-weight: bold;
         }
 
@@ -100,8 +125,8 @@
         }
 
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #ffb6c1; /* Light pink */
+            color: #1a1a1a; /* Black text */
             text-align: center;
             padding: 1rem 0;
             margin-top: 2rem;
@@ -116,9 +141,15 @@
 <body>
     <header>
         <h1>City Design</h1>
+        <div class="nav-buttons">
+            <a href="#home">Home</a>
+            <a href="#team">Team</a>
+            <a href="#project">Project</a>
+            <a href="#contact">Contact Us</a>
+        </div>
     </header>
 
-    <section class="info-section">
+    <section id="home" class="info-section">
         <h2>Portfolio Details</h2>
         <p><strong>Portfolio Topic:</strong> To create a city design and solve real-world problems</p>
         <p><strong>Course Name:</strong> Design and Analysis of Algorithms</p>
@@ -128,7 +159,7 @@
         <p><strong>Portfolio Topic/Domain:</strong> City Design</p>
     </section>
 
-    <section class="team-section">
+    <section id="team" class="team-section">
         <h2>Meet Our Team</h2>
         <div class="team">
             <div class="team-member">
@@ -150,6 +181,17 @@
                 <p>Team Member</p>
             </div>
         </div>
+    </section>
+
+    <section id="project" class="info-section">
+        <h2>Our Project</h2>
+        <p>Details about the city design project go here...</p>
+    </section>
+
+    <section id="contact" class="info-section">
+        <h2>Contact Us</h2>
+        <p>Email: teamportfolio@example.com</p>
+        <p>Phone: +123 456 7890</p>
     </section>
 
     <footer>
