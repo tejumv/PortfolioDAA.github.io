@@ -9,76 +9,65 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a; /* Black background */
-            color: #f4f4f4; /* Light text for better readability */
-            scroll-behavior: smooth; /* Enable smooth scrolling */
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            scroll-behavior: smooth;
         }
-
         header {
-            background-color: #ffb6c1; /* Light pink */
-            color: #1a1a1a; /* Black text */
+            background-color: #ffb6c1;
+            color: #1a1a1a;
             padding: 1rem 0;
             text-align: center;
         }
-
         header h1 {
             margin: 0;
             font-size: 2.5rem;
         }
-
         .nav-buttons {
             text-align: center;
             margin-top: 1rem;
         }
-
         .nav-buttons a {
             display: inline-block;
             margin: 0.5rem;
             padding: 0.8rem 1.5rem;
             font-size: 1rem;
-            color: #ffb6c1; /* Light pink text */
-            background-color: #1a1a1a; /* Black background */
+            color: #ffb6c1;
+            background-color: #1a1a1a;
             border: none;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
-
         .nav-buttons a:hover {
-            background-color: #333; /* Slightly lighter black on hover */
+            background-color: #333;
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
         }
-
         .info-section {
-            background-color: #2a2a2a; /* Slightly lighter black */
+            background-color: #2a2a2a;
             padding: 2rem;
             margin: 1rem;
             border-radius: 10px;
         }
-
         .info-section h2 {
             font-size: 2rem;
-            color: #ffb6c1; /* Light pink */
+            color: #ffb6c1;
             text-align: center;
         }
-
         .info-section p {
             font-size: 1rem;
-            color: #cccccc; /* Light gray text */
+            color: #cccccc;
             line-height: 1.6;
         }
-
         .team-section {
             text-align: center;
             padding: 2rem;
         }
-
         .team-section h2 {
             font-size: 2rem;
-            color: #ffb6c1; /* Light pink */
+            color: #ffb6c1;
         }
-
         .team {
             display: flex;
             justify-content: center;
@@ -86,55 +75,47 @@
             flex-wrap: wrap;
             margin-top: 2rem;
         }
-
         .team-member {
-            background-color: #2a2a2a; /* Slightly lighter black */
-            border: 1px solid #444; /* Dark gray border */
+            background-color: #2a2a2a;
+            border: 1px solid #444;
             border-radius: 10px;
             padding: 1rem;
             width: 200px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
-
         .team-member img {
             width: 100%;
             height: auto;
             border-radius: 10px;
         }
-
         .team-member h3 {
             margin: 0.5rem 0;
             font-size: 1.2rem;
-            color: #ffb6c1; /* Light pink */
+            color: #ffb6c1;
         }
-
         .team-member p {
             margin: 0.5rem 0;
             font-size: 1rem;
-            color: #cccccc; /* Light gray text */
+            color: #cccccc;
         }
-
         .team-member a {
             text-decoration: none;
-            color: #ffb6c1; /* Light pink */
+            color: #ffb6c1;
             font-weight: bold;
         }
-
         .team-member a:hover {
             text-decoration: underline;
         }
-
         .team-info {
             font-size: 1.2rem;
-            color: #ffb6c1; /* Light pink */
+            color: #ffb6c1;
             margin-top: 2rem;
             text-align: center;
         }
-
         .team-info button {
-            background-color: #ffb6c1; /* Light pink */
-            color: #1a1a1a; /* Black text */
+            background-color: #ffb6c1;
+            color: #1a1a1a;
             padding: 1rem 2rem;
             border: none;
             border-radius: 5px;
@@ -142,137 +123,85 @@
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
         }
-
         .team-info button:hover {
-            background-color: #e89aa7; /* Slightly darker pink */
+            background-color: #e89aa7;
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
         }
-
-        /* Bubble Effect Styles */
-        .bubble {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-color: rgba(255, 182, 193, 0.7); /* Light pink bubble */
-            border-radius: 50%;
-            animation: bubble-animation 1s forwards;
-        }
-
-        @keyframes bubble-animation {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.5);
-                opacity: 0;
-                top: -50px;
-                left: -50px;
-            }
-        }
-
         footer {
-            background-color: #ffb6c1; /* Light pink */
-            color: #1a1a1a; /* Black text */
+            background-color: #ffb6c1;
+            color: #1a1a1a;
             text-align: center;
             padding: 1rem 0;
             margin-top: 2rem;
         }
-
         footer p {
             margin: 0;
             font-size: 0.9rem;
         }
-
         #contact {
-            font-size: 0.9rem; /* Smaller font size for the contact section */
+            font-size: 0.9rem;
         }
-
         #contact p {
             margin: 0.5rem 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>City Design</h1>
-        <div class="nav-buttons">
-            <a href="#home">Home</a>
-            <a href="#team">Team</a>
-            <a href="project.html" target="_blank">Project</a> <!-- Updated to open a new page -->
-            <a href="#contact">Contact Us</a>
+<header>
+    <h1>City Design</h1>
+    <div class="nav-buttons">
+        <a href="#home">Home</a>
+        <a href="#team">Team</a>
+        <a href="project.html" target="_blank">Project</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+</header>
+<section id="home" class="info-section">
+    <h2>Portfolio Details</h2>
+    <p><strong>Portfolio Topic:</strong> To create a city design and solve real-world problems</p>
+    <p><strong>Course Name:</strong> Design and Analysis of Algorithms</p>
+    <p><strong>Course Code:</strong> 24ECAC203</p>
+    <p><strong>Course Instructor:</strong> Mrs. Vijayalakshmi S</p>
+    <p><strong>University:</strong> KLETech University</p>
+    <p><strong>Portfolio Topic/Domain:</strong> City Design</p>
+</section>
+<section id="team" class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team">
+        <div class="team-member">
+            <h3><a href="tejaswini.html">Tejaswini M V</a></h3>
+            <p>USN: 01FE23BCI044</p>
+            <p>Team Member</p>
         </div>
-    </header>
-
-    <section id="home" class="info-section">
-        <h2>Portfolio Details</h2>
-        <p><strong>Portfolio Topic:</strong> To create a city design and solve real-world problems</p>
-        <p><strong>Course Name:</strong> Design and Analysis of Algorithms</p>
-        <p><strong>Course Code:</strong> 24ECAC203</p>
-        <p><strong>Course Instructor:</strong> Mrs. Vijayalakshmi S</p>
-        <p><strong>University:</strong> KLETech University</p>
-        <p><strong>Portfolio Topic/Domain:</strong> City Design</p>
-    </section>
-
-    <section id="team" class="team-section">
-        <h2>Meet Our Team</h2>
-        <div class="team">
-            <div class="team-member">
-                <h3><a href="tejaswini.html">Tejaswini M V</a></h3>
-                <p>USN: 01FE23BCI044</p>
-                <p>Team Member</p>
-            </div>
-            <div class="team-member">
-                <h3><a href="ayesha.html">Ayesha Maniyar</a></h3>
-                <p>USN: 01FE23BCI007</p>
-                <p>Team Member</p>
-            </div>
-            <div class="team-member">
-                <h3><a href="gouri.html">Gouri Banapurmath</a></h3>
-                <p>USN: 01FE23BCI079</p>
-                <p>Team Member</p>
-            </div>
+        <div class="team-member">
+            <h3><a href="ayesha.html">Ayesha Maniyar</a></h3>
+            <p>USN: 01FE23BCI007</p>
+            <p>Team Member</p>
         </div>
-
-        <!-- New section below the team names -->
-        <div class="team-info">
-            <p>Come Let's Know The Members</p>
-            <button onclick="showBubbles()">Click Here</button> <!-- Button to trigger the bubble effect -->
+        <div class="team-member">
+            <h3><a href="gouri.html">Gouri Banapurmath</a></h3>
+            <p>USN: 01FE23BCI079</p>
+            <p>Team Member</p>
         </div>
-    </section>
-
-    <section id="contact" class="info-section">
-        <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:tejaswinimv0102@gmail.com">tejaswinimv0102@gmail.com</a>, <a href="mailto:ayeshamaniyar2601@gmail.com">ayeshamaniyar2601@gmail.com</a>, <a href="mailto:gouribanapurmath@gmail.com">gouribanapurmath@gmail.com</a></p>
-        <p><strong>Phone:</strong> 9380539252, 7483192591, 8073262664</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Team Portfolio. All rights reserved.</p>
-    </footer>
-
-    <script>
-        function showBubbles() {
-            for (let i = 0; i < 10; i++) { // Number of bubbles
-                let bubble = document.createElement('div');
-                bubble.classList.add('bubble');
-                document.body.appendChild(bubble);
-
-                // Set random positions for each bubble
-                let randomX = Math.random() * window.innerWidth;
-                let randomY = Math.random() * window.innerHeight;
-                bubble.style.left = randomX + 'px';
-                bubble.style.top = randomY + 'px';
-
-                // Remove the bubble after animation
-                setTimeout(() => {
-                    bubble.remove();
-                }, 1000);
-            }
-        }
-    </script>
+    </div>
+    <div class="team-info">
+        <p>Come Let's Know The Members</p>
+        <button onclick="openNewPage()">Click Here</button>
+    </div>
+</section>
+<section id="contact" class="info-section">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:tejaswinimv0102@gmail.com">tejaswinimv0102@gmail.com</a>, <a href="mailto:ayeshamaniyar2601@gmail.com">ayeshamaniyar2601@gmail.com</a>, <a href="mailto:gouribanapurmath@gmail.com">gouribanapurmath@gmail.com</a></p>
+    <p><strong>Phone:</strong> 9380539252, 7483192591, 8073262664</p>
+</section>
+<footer>
+    <p>&copy; 2025 Team Portfolio. All rights reserved.</p>
+</footer>
+<script>
+    function openNewPage() {
+        window.open('newpage.html', '_blank');
+    }
+</script>
 </body>
 </html>
