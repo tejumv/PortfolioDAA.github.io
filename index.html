@@ -145,6 +145,17 @@
         #contact p {
             margin: 0.5rem 0;
         }
+
+        /* Custom link color */
+        .custom-link {
+            color: #ffb6c1; /* Light pink color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .custom-link:hover {
+            text-decoration: underline; /* Add underline on hover */
+            color: #e89aa7; /* Slightly darker pink on hover */
+        }
     </style>
 </head>
 <body>
@@ -192,7 +203,11 @@
 </section>
 <section id="contact" class="info-section">
     <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:tejaswinimv0102@gmail.com">tejaswinimv0102@gmail.com</a>, <a href="mailto:ayeshamaniyar2601@gmail.com">ayeshamaniyar2601@gmail.com</a>, <a href="mailto:gouribanapurmath@gmail.com">gouribanapurmath@gmail.com</a></p>
+    <p>Email: 
+        <a href="mailto:tejaswinimv0102@gmail.com" class="custom-link">tejaswinimv0102@gmail.com</a>, 
+        <a href="mailto:ayeshamaniyar2601@gmail.com" class="custom-link">ayeshamaniyar2601@gmail.com</a>, 
+        <a href="mailto:gouribanapurmath@gmail.com" class="custom-link">gouribanapurmath@gmail.com</a>
+    </p>
     <p><strong>Phone:</strong> 9380539252, 7483192591, 8073262664</p>
 </section>
 <footer>
