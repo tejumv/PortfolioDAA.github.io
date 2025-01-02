@@ -43,32 +43,39 @@
             color: #cccccc; /* Light gray text */
         }
 
-        .github-button {
-            display: inline-block;
-            background-color: #333;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-align: center;
-            margin: 1rem 0;
-        }
-
-        .github-button:hover {
-            background-color: #555;
-        }
-
-        .image-container {
+        .business-ideas-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Allow wrapping if screen is too small */
+            gap: 20px;
             margin-top: 2rem;
+        }
+
+        .column {
+            background-color: #333; /* Dark gray box */
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 20%; /* Adjust box width */
+            min-width: 200px; /* Minimum width for small screens */
             text-align: center;
         }
 
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #ffb6c1; /* Light pink border */
-            border-radius: 10px;
+        .column h3 {
+            color: #ffb6c1; /* Light pink */
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .column ul {
+            list-style: none;
+            padding: 0;
+            text-align: left; /* Align points to the left */
+        }
+
+        .column li {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            color: #f4f4f4; /* Light text */
         }
 
         footer {
@@ -101,20 +108,8 @@
             city that thrives on green solutions and inclusivity, ensuring a better quality of life for all its residents.
         </p>
 
-        <h2>Phase 1: City Map & Topography</h2>
-        <p>
-            Amarapalli, near Hyderabad in Telangana (Pincode: 500001), spans 1500 sq km on the Deccan Plateau, characterized by rugged terrain, small hills, and lateritic soils. It has a tropical climate with hot summers, moderate rainfall, and mild winters. The city features modern infrastructure, traditional architecture, and strong connectivity via roads and rail. Its economy is shaped by proximity to IT hubs, industries, and agriculture. Rich in cultural heritage influenced by Qutb Shahi and Asaf Jahi dynasties, the city predominantly speaks Telugu and Urdu. Biodiversity includes scrub forests, thorny bushes, and semi-arid wildlife.
-        </p>
-
-        <div class="image-container">
-            </div>
-
-        <div class="image-container">
-            <img src="daa.jpg" alt="Image description">
-        </div>
-
         <h2>Phase 2: Business Idea Generation</h2>
-        <div class="container">
+        <div class="business-ideas-container">
             <div class="column">
                 <h3>Nithish</h3>
                 <ul>
@@ -151,8 +146,8 @@
             <div class="column">
                 <h3>Pranav</h3>
                 <ul>
-                    <li>Public food delivery</li>
-                    <li>Cotton goods product industry</li>
+                    <li>Public food delivery business</li>
+                    <li>Cotton goods production industry</li>
                     <li>Organic manure production</li>
                     <li>Climate resilience solutions for urban development</li>
                     <li>Smart water management</li>
@@ -164,10 +159,5 @@
     <footer>
         <p>&copy; 2025 City Design Project. All rights reserved.</p>
     </footer>
-
-    <div class="image-container">
-        <img src="image_path_for_phase_2_image.jpg" alt="Phase 2 Business Idea Generation">
-    </div>
-
 </body>
 </html>
