@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms in City Design</title>
+    <style>
+        body {
+            background-color: black;
+            color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        button {
+            background-color: pink;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #ff66b2;
+        }
+
+        .code-container {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #ffc0cb; /* Light pink color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Algorithms in City Design</h1>
+    <p>Click on the buttons below to view the respective algorithm code.</p>
+
+    <button onclick="showCode('dijkstra')">Dijkstra's Algorithm - Shortest Path</button>
+    <button onclick="showCode('prims')">Prim's Algorithm - Parking Lot Connection</button>
+    <button onclick="showCode('quicksort')">Quick Sort - Exam Hall Allocation</button>
+
+    <div id="dijkstra" class="code-container">
+        <h2>Dijkstra's Algorithm - Shortest Path</h2>
+        <pre>
+            <!-- Add Dijkstra's Algorithm code here -->
+            #include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;climits&gt;
+#include &lt;queue&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+string toLowerCase(const string& str) {
+    string result = str;
+    transform(result.begin(), result.end(), result.begin(), ::tolower);
+    return result;
+}
+
+void dijkstra(int source, vector<vector<pair<int, int>>>& graph, vector<int>& distances, vector<int>& predecessors) {
+    int n = graph.size();
+    distances.assign(n, INT_MAX);      
+    predecessors.assign(n, -1);      
+    distances[source] = 0;
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq; // Min-heap
+    pq.push({0, source}); 
+    while (!pq.empty()) {
+        int currentDistance = pq.top().first;
+        int currentNode = pq.top().second;
+        pq.pop();
+
+        if (currentDistance > distances[currentNode]) continue;
+
+        for (auto& neighbor : graph[currentNode]) {
+            int nextNode = neighbor.first;
+            int weight = neighbor.second;
+
+            if (distances[currentNode] + weight < distances[nextNode]) {
+                distances[nextNode] = distances[currentNode] + weight;
+                predecessors[nextNode] = currentNode; // Update the predecessor
+                pq.push({distances[nextNode], nextNode});
+            }
+        }
+    }
+}
+
+vector<int> reconstruct_path(int source, int target, const vector<int>& predecessors) {
+    vector<int> path;
+    for (int at = target; at != -1; at = predecessors[at]) {
+        path.push_back(at);
+    }
+    reverse(path.begin(), path.end()); // Reverse the path to get it from source to target
+    if (path.front() == source) return path;
+    return {}; // Return an empty path if there is no path
+}
+
+int main() {
+    unordered_map<string, int> nameToIndex = {
+        {"universitymaingate", 0}, {"cs", 1}, {"ec", 2}, {"mechanical", 3}, {"biotech", 4},
+        {"eee", 5}, {"library", 6}, {"parking", 7}, {"residentialarea", 8}, {"gym", 9},
+        {"park", 10}, {"adminblock", 11}, {"railwaystation", 12}, {"hostel", 13},
+        {"busstand", 14}, {"mall", 15}, {"school", 16}, {"restaurant", 17},
+        {"ithub", 18}, {"hospital", 19}, {"medicalcollege", 20}
+    };
+
+    unordered_map<int, string> indexToName = {
+        {0, "UniversityMainGate"}, {1, "CS"}, {2, "EC"}, {3, "Mechanical"}, {4, "Biotech"},
+        {5, "EEE"}, {6, "Library"}, {7, "Parking"}, {8, "ResidentialArea"}, {9, "Gym"},
+        {10, "Park"}, {11, "AdminBlock"}, {12, "RailwayStation"}, {13, "Hostel"},
+        {14, "BusStand"}, {15, "Mall"}, {16, "School"}, {17, "Restaurant"},
+        {18, "ITHub"}, {19, "Hospital"}, {20, "MedicalCollege"}
+    };
+
+    vector<vector<pair<int, int>>> graph(21); // Graph with 21 nodes
+
+    vector<tuple<string, string, int>> edges = {
+        {"universitymaingate", "cs", 2}, {"universitymaingate", "ec", 3},
+        {"universitymaingate", "biotech", 4}, {"universitymaingate", "mechanical", 4},
+        {"universitymaingate", "eee", 3}, {"universitymaingate", "parking", 5},
+        {"cs", "ec", 4}, {"cs", "library", 6}, {"ec", "mechanical", 3},
+        {"mechanical", "biotech", 5}, {"biotech", "eee", 7}, {"eee", "library", 2},
+        {"library", "parking", 3}, {"parking", "residentialarea", 5},
+        {"residentialarea", "gym", 6}, {"gym", "park", 2}, {"park", "adminblock", 8},
+        {"adminblock", "railwaystation", 4}, {"railwaystation", "hostel", 10},
+        {"hostel", "busstand", 7}, {"busstand", "mall", 3}, {"mall", "school", 6},
+        {"school", "restaurant", 4}, {"restaurant", "ithub", 5},
+        {"ithub", "hospital", 8}, {"hospital", "medicalcollege", 2}
+    };
+
+    for (auto& edge : edges) {
+        string from, to;
+        int weight;
+        tie(from, to, weight) = edge;
+        int u = nameToIndex[from];
+        int v = nameToIndex[to];
+        graph[u].push_back({v, weight});
+        graph[v].push_back({u, weight}); // Assuming undirected graph
+    }
+
+    cout << "Available locations:" << endl;
+    for (const auto& pair : nameToIndex) {
+        cout << pair.first << endl;
+    }
+
+    cout << "\nConnections (edges):" << endl;
+    for (const auto& edge : edges) {
+        string from, to;
+        int weight;
+        tie(from, to, weight) = edge;
+        cout << from << " --(" << weight << ")--> " << to << endl;
+    }
+
+    string targetName;
+    cout << "\nEnter the target location: ";
+    cin >> targetName;
+
+    targetName = toLowerCase(targetName);
+
+    auto targetIt = nameToIndex.find(targetName);
+
+    if (targetIt == nameToIndex.end()) {
+        cout << "Invalid target location!" << endl;
+        return 0;
+    }
+
+    int source = 0; 
+    int target = targetIt->second;
+
+    vector<int> distances, predecessors;
+    dijkstra(source, graph, distances, predecessors);
+
+    if (distances[target] == INT_MAX) {
+        cout << "No path exists to " << targetName << endl;
+    } else {
+        cout << "Shortest distance from UniversityMainGate to " << targetName << ": " << distances[target] << endl;
+
+        vector<int> path = reconstruct_path(source, target, predecessors);
+        cout << "Shortest path: ";
+        for (int node : path) {
+            cout << indexToName[node] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+        </pre>
+    </div>
+
+    <div id="prims" class="code-container">
+        <h2>Prim's Algorithm - Parking Lot Connection</h2>
+        <pre>
+            <!-- Add Prim's Algorithm code here -->
+            #include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;climits&gt;
+#include &lt;queue&gt;
+#include &lt;map&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+struct Edge {
+    int to, weight;
+};
+
+void primsAlgorithm(int n, vector<vector<Edge>>& graph, int startNode) {
+    vector<int> minCost(n, INT_MAX);   // Stores minimum cost to connect each node
+    vector<bool> inMST(n, false);       // Tracks nodes included in MST
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq; // Min-heap (priority queue)
+
+    minCost[startNode] = 0;
+    pq.push({0, startNode});
+
+    int totalCost = 0;
+
+    while (!pq.empty()) {
+        int node = pq.top().second;
+        int cost = pq.top().first;
+        pq.pop();
+
+        if (inMST[node]) continue;
+
+        inMST[node] = true;
+        totalCost += cost;
+
+        for (const auto& edge : graph[node]) {
+            int nextNode = edge.to;
+            int edgeWeight = edge.weight;
+
+            if (!inMST[nextNode] && edgeWeight < minCost[nextNode]) {
+                minCost[nextNode] = edgeWeight;
+                pq.push({edgeWeight, nextNode});
+            }
+        }
+    }
+
+    cout << "Total minimum cost to connect all parking lots: " << totalCost << " meters" << endl;
+}
+
+int main() {
+    int n, m;
+
+    cout << "Enter number of parking lots (nodes): ";
+    cin >> n;
+
+    vector<vector<Edge>> graph(n);
+
+    map<int, string> parkingLotNames;
+
+    cout << "Enter the names of parking lots: " << endl;
+    for (int i = 0; i < n; ++i) {
+        cout << "Enter name for parking lot " << i << ": ";
+        cin >> parkingLotNames[i];
+    }
+
+    cout << "Enter the number of connections (roads): ";
+    cin >> m;
+
+    cout << "Enter the connections in the format: <From parking lot name> <To parking lot name> <Distance>" << endl;
+    for (int i = 0; i < m; ++i) {
+        string fromName, toName;
+        int from, to, distance;
+
+        cout << "Connection " << i + 1 << ": ";
+        cin >> fromName >> toName >> distance;
+
+        from = find_if(parkingLotNames.begin(), parkingLotNames.end(), [&](const pair<int, string>& p) { return p.second == fromName; })->first;
+        to = find_if(parkingLotNames.begin(), parkingLotNames.end(), [&](const pair<int, string>& p) { return p.second == toName; })->first;
+
+        graph[from].push_back({to, distance});
+        graph[to].push_back({from, distance}); // Since the graph is undirected
+    }
+
+    string startName;
+    cout << "Enter the starting parking lot name: ";
+    cin >> startName;
+
+    int startNode = find_if(parkingLotNames.begin(), parkingLotNames.end(), [&](const pair<int, string>& p) { return p.second == startName; })->first;
+
+    primsAlgorithm(n, graph, startNode);
+
+    return 0;
+}
+        </pre>
+    </div>
+
+    <div id="quicksort" class="code-container">
+        <h2>Quick Sort - Exam Hall Allocation</h2>
+        <pre>
+            <!-- Add Quick Sort code here -->
+            #include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+
+
+using namespace std;
+
+void quickSort(vector<int>& usns, int low, int high) {
+    if (low < high) {
+        int pivot = usns[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+            if (usns[j] <= pivot) {
+                i++;
+                swap(usns[i], usns[j]);
+            }
+        }
+        swap(usns[i + 1], usns[high]);
+
+        int pi = i + 1;
+
+        quickSort(usns, low, pi - 1);
+        quickSort(usns, pi + 1, high);
+    }
+}
+
+void allocateHalls(vector<int>& usns, vector<string>& halls, vector<int>& benches) {
+    int numStudents = usns.size();
+    int numHalls = halls.size();
+
+    int studentIndex = 0;
+    for (int i = 0; i < numHalls; ++i) {
+        int benchesInHall = benches[i];
+        cout << "Allocating students to " << halls[i] << " (Capacity: " << benchesInHall << "):" << endl;
+
+        for (int j = 0; j < benchesInHall && studentIndex < numStudents; ++j, ++studentIndex) {
+            cout << "USN: " << usns[studentIndex] << " is allocated to " << halls[i] << endl;
+        }
+
+        if (studentIndex >= numStudents) {
+            break; // No more students to allocate
+        }
+    }
+
+    if (studentIndex < numStudents) {
+        cout << "\nSome students couldn't be allocated due to insufficient capacity in all halls!" << endl;
+    }
+}
+
+int main() {
+    int numStudents, numHalls;
+
+    cout << "Enter the number of students: ";
+    cin >> numStudents;
+
+    vector<int> usns(numStudents);
+    for (int i = 0; i < numStudents; ++i) {
+        usns[i] = i + 1;  // USNs are sequential starting from 1
+    }
+
+    cout << "Enter the number of exam halls: ";
+    cin >> numHalls;
+
+    vector<string> halls(numHalls);
+    vector<int> benches(numHalls);
+
+    cout << "Enter the names of exam halls and the number of benches in each hall:" << endl;
+    for (int i = 0; i < numHalls; ++i) {
+        cout << "Hall " << i + 1 << " name: ";
+        cin >> halls[i];
+        cout << "Hall " << i + 1 << " number of benches: ";
+        cin >> benches[i];
+    }
+
+    quickSort(usns, 0, numStudents - 1);
+
+    allocateHalls(usns, halls, benches);
+
+    return 0;
+}
+
+        </pre>
+    </div>
+
+    <script>
+        function showCode(id) {
+            const currentContainer = document.getElementById(id);
+            const isVisible = currentContainer.style.display === 'block';
+            
+            // Hide all containers
+            document.querySelectorAll('.code-container').forEach(container => {
+                container.style.display = 'none';
+            });
+
+            // Toggle visibility of the clicked container
+            if (!isVisible) {
+                currentContainer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
