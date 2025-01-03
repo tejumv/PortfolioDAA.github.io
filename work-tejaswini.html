@@ -52,6 +52,9 @@
         <div class="section">
             <h1>City Design Project - SDGs Alignment</h1>
             <ul>
+                <li><strong>SDG 4: Quality Education</strong><br>
+                   Ensure everyone gets a good education and can keep learning throughout their life, improving skills and opportunities.
+                    </li>
                 <li><strong>SDG 7: Affordable and Clean Energy</strong><br>
                     Focus on integrating energy-efficient systems, promoting renewable energy, and reducing waste to create a resource-efficient city.
                 </li>
@@ -61,35 +64,35 @@
                 <li><strong>SDG 11: Sustainable Cities and Communities</strong><br>
                     Building an eco-friendly and socially inclusive city that addresses overpopulation, improves transportation, and ensures community well-being.
                 </li>
-                <li><strong>SDG 12: Responsible Consumption and Production</strong><br>
-                    Minimizing waste and promoting efficient resource use in urban development.
-                </li>
+                
+                
             </ul>
         </div>
 
         <div class="section">
             <h1>University Sector Algorithms</h1>
-            <h2>Library: KMP Algorithm for Finding Books by Titles</h2>
-            <p><strong>Why KMP Algorithm?</strong></p>
+            <h2>Dijkstra's Algorithm For finding shortest path from University</h2>
+            <p><strong>Why Dijkstra's Algorithm?</strong></p>
             <p>
-                The Knuth-Morris-Pratt (KMP) algorithm is efficient for searching patterns in strings. It preprocesses 
-                the pattern (book title) to allow for quick matches, minimizing the time spent backtracking on mismatches.
+                Dijkstra's algorithm plays a crucial role in finding the shortest path from a fixed source node 
+                to a specified target location in a weighted, undirected graph.
             </p>
             <p>
-                Libraries often contain a vast number of book titles, and users may search for a specific title or partial matches. 
-                The KMP algorithm ensures that the search is done in linear time, even for large datasets.
+                This code uses Dijkstra's algorithm on an adjacency list representation of a weighted graph to compute the shortest path and distance from a fixed source (UniversityMainGate) to a user-specified target location, enabling efficient navigation in the given network.
+
             </p>
-            <p><strong>How Does it Work?</strong></p>
-            <ul>
-                <li><strong>Pattern Matching:</strong> The KMP algorithm scans the book titles database for the user’s query (title).</li>
-                <li><strong>Preprocessing:</strong> A prefix table is created for the search pattern, enabling efficient backtracking during mismatches.</li>
-                <li><strong>Search Execution:</strong> The algorithm quickly locates the title by matching characters, skipping unnecessary comparisons.</li>
-            </ul>
+           <p><strong>How Does it Work?</strong></p>  
+<ul>  
+    <li><strong>Graph Representation:</strong> The university's locations and connections are represented as a weighted graph using an adjacency list.</li>  
+    <li><strong>Shortest Path Calculation:</strong> Dijkstra's algorithm is employed to compute the shortest path from the fixed source (<code>UniversityMainGate</code>) to the target location, minimizing the total distance.</li>  
+    <li><strong>Path Reconstruction:</strong> Using the array, the algorithm reconstructs the optimal path from the source to the target, skipping unnecessary nodes.</li>  
+</ul>
+
             <p><strong>Benefits:</strong></p>
             <ul>
-                <li>Efficiently handles large volumes of book titles.</li>
-                <li>Allows partial title matching, enhancing user search experience.</li>
-                <li>Optimized performance for dynamic and frequently updated library databases.</li>
+                <li> The algorithm efficiently computes the shortest paths.</li>
+                <li>Suitable for handling larger graphs efficiently due to its systematic approach.</li>
+                <li> Easy to implement and understand, especially for common navigation problems.</li>
             </ul>
         </div>
     </div>
