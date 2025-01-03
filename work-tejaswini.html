@@ -45,6 +45,24 @@
         a:hover {
             text-decoration: underline;
         }
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .button {
+            background-color: #ffb6c1; /* Light pink color */
+            color: #000; /* Black text */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #ffa0b5; /* Slightly darker pink on hover */
+        }
     </style>
 </head>
 <body>
@@ -64,8 +82,6 @@
                 <li><strong>SDG 11: Sustainable Cities and Communities</strong><br>
                     Building an eco-friendly and socially inclusive city that addresses overpopulation, improves transportation, and ensures community well-being.
                 </li>
-                
-                
             </ul>
         </div>
 
@@ -79,22 +95,15 @@
             </p>
             <p>
                 This code uses Dijkstra's algorithm on an adjacency list representation of a weighted graph to compute the shortest path and distance from a fixed source (UniversityMainGate) to a user-specified target location, enabling efficient navigation in the given network.
-
             </p>
-           <p><strong>How Does it Work?</strong></p>  
-<ul>  
-    <li><strong>Graph Representation:</strong> The university's locations and connections are represented as a weighted graph using an adjacency list.</li>  
-    <li><strong>Shortest Path Calculation:</strong> Dijkstra's algorithm is employed to compute the shortest path from the fixed source (<code>UniversityMainGate</code>) to the target location, minimizing the total distance.</li>  
-    <li><strong>Path Reconstruction:</strong> Using the array, the algorithm reconstructs the optimal path from the source to the target, skipping unnecessary nodes.</li>  
-</ul>
-
-            <p><strong>Benefits:</strong></p>
-            <ul>
-                <li> The algorithm efficiently computes the shortest paths.</li>
-                <li>Suitable for handling larger graphs efficiently due to its systematic approach.</li>
-                <li> Easy to implement and understand, especially for common navigation problems.</li>
+            <p><strong>How Does it Work?</strong></p>  
+            <ul>  
+                <li><strong>Graph Representation:</strong> The university's locations and connections are represented as a weighted graph using an adjacency list.</li>  
+                <li><strong>Shortest Path Calculation:</strong> Dijkstra's algorithm is employed to compute the shortest path from the fixed source (<code>UniversityMainGate</code>) to the target location, minimizing the total distance.</li>  
+                <li><strong>Path Reconstruction:</strong> Using the array, the algorithm reconstructs the optimal path from the source to the target, skipping unnecessary nodes.</li>  
             </ul>
-            <h2>Prim's Algorithm For Connecting Parking Lots</h2>
+
+              <h2>Prim's Algorithm For Connecting Parking Lots</h2>
             <p><strong>Why Prim's Algorithm?</strong></p>
             <p>
                 Prim's algorithm to find the minimum spanning tree (MST) of a graph. The MST is a subset of the edges that connects all the nodes with the minimum possible total weight, without forming any cycle
@@ -134,6 +143,11 @@ Quick Sort is a highly efficient, comparison-based sorting algorithm that uses t
                 <li>By sorting students in \(O(n \log n)\) time, Quick Sort enables faster and more efficient allocation, especially for large numbers of students.</li>
                 <li>  Quick Sort's efficiency makes it suitable for handling large datasets of students, enabling the program to scale well as the number of students or exam halls increases.</li>
             </ul>
+        </div>
+
+
+        <div class="button-container">
+            <a href="codes.html" class="button" target="_blank">View Codes</a>
         </div>
     </div>
 </body>
