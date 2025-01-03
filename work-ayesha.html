@@ -57,7 +57,7 @@
         <h2>Dijkstra's Algorithm - Shortest Path</h2>
         <pre>
             <!-- Add Dijkstra's Algorithm code here -->
-#include &lt;iostream&gt;
+            #include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;climits&gt;
 #include &lt;queue&gt;
@@ -206,7 +206,7 @@ int main() {
         <h2>Prim's Algorithm - Parking Lot Connection</h2>
         <pre>
             <!-- Add Prim's Algorithm code here -->
-#include &lt;iostream&gt;
+            #include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;climits&gt;
 #include &lt;queue&gt;
@@ -304,7 +304,7 @@ int main() {
         <h2>Quick Sort - Exam Hall Allocation</h2>
         <pre>
             <!-- Add Quick Sort code here -->
-#include &lt;iostream&gt;
+            #include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;string&gt;
 #include &lt;algorithm&gt;
@@ -386,15 +386,24 @@ int main() {
 
     return 0;
 }
+
         </pre>
     </div>
 
     <script>
         function showCode(id) {
+            const currentContainer = document.getElementById(id);
+            const isVisible = currentContainer.style.display === 'block';
+            
+            // Hide all containers
             document.querySelectorAll('.code-container').forEach(container => {
                 container.style.display = 'none';
             });
-            document.getElementById(id).style.display = 'block';
+
+            // Toggle visibility of the clicked container
+            if (!isVisible) {
+                currentContainer.style.display = 'block';
+            }
         }
     </script>
 </body>
