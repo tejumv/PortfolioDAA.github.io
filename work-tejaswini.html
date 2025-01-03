@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Sector & City Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ff66ff;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section p {
+            text-align: justify;
+            margin: 10px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h1>City Design Project - SDGs Alignment</h1>
+            <ul>
+                <li><strong>SDG 7: Affordable and Clean Energy</strong><br>
+                    Focus on integrating energy-efficient systems, promoting renewable energy, and reducing waste to create a resource-efficient city.
+                </li>
+                <li><strong>SDG 9: Industry, Innovation, and Infrastructure</strong><br>
+                    Development of modern infrastructure, fostering innovation in urban planning, and enhancing connectivity with IT hubs and industries.
+                </li>
+                <li><strong>SDG 11: Sustainable Cities and Communities</strong><br>
+                    Building an eco-friendly and socially inclusive city that addresses overpopulation, improves transportation, and ensures community well-being.
+                </li>
+                <li><strong>SDG 12: Responsible Consumption and Production</strong><br>
+                    Minimizing waste and promoting efficient resource use in urban development.
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h1>University Sector Algorithms</h1>
+            <h2>Library: KMP Algorithm for Finding Books by Titles</h2>
+            <p><strong>Why KMP Algorithm?</strong></p>
+            <p>
+                The Knuth-Morris-Pratt (KMP) algorithm is efficient for searching patterns in strings. It preprocesses 
+                the pattern (book title) to allow for quick matches, minimizing the time spent backtracking on mismatches.
+            </p>
+            <p>
+                Libraries often contain a vast number of book titles, and users may search for a specific title or partial matches. 
+                The KMP algorithm ensures that the search is done in linear time, even for large datasets.
+            </p>
+            <p><strong>How Does it Work?</strong></p>
+            <ul>
+                <li><strong>Pattern Matching:</strong> The KMP algorithm scans the book titles database for the user’s query (title).</li>
+                <li><strong>Preprocessing:</strong> A prefix table is created for the search pattern, enabling efficient backtracking during mismatches.</li>
+                <li><strong>Search Execution:</strong> The algorithm quickly locates the title by matching characters, skipping unnecessary comparisons.</li>
+            </ul>
+            <p><strong>Benefits:</strong></p>
+            <ul>
+                <li>Efficiently handles large volumes of book titles.</li>
+                <li>Allows partial title matching, enhancing user search experience.</li>
+                <li>Optimized performance for dynamic and frequently updated library databases.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
