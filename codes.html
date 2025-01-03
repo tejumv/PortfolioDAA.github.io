@@ -400,7 +400,30 @@ int main() {
     <div id="output-dijkstra" class="output-container">
         <h2>Dijkstra's Algorithm - Sample Output</h2>
         <pre>
-            // Add Dijkstra's Algorithm sample output here
+Connections (edges):
+universitymaingate --(2)--> cs                   universitymaingate --(3)--> ec
+universitymaingate --(4)--> biotech              universitymaingate --(4)--> mechanical
+universitymaingate --(3)--> eee                   cs --(6)--> library
+universitymaingate --(5)--> parking               biotech --(7)--> eee
+cs --(4)--> ec                                    eee --(2)--> library
+cs --(6)--> library                               hospital --(2)--> medicalcollege
+ec --(3)--> mechanical                            library --(3)--> parking
+mechanical --(5)--> biotech                       parking --(5)--> residentialarea
+residentialarea --(6)--> gym                      gym --(2)--> park
+park --(8)--> adminblock                          hostel --(7)--> busstand
+adminblock --(4)--> railwaystation                school --(4)--> restaurant
+railwaystation --(10)--> hostel                   ithub --(8)--> hospital
+mall --(6)--> school                               busstand --(3)--> mall
+
+Sample Output 01:
+Enter the target location: mall
+Shortest distance from UniversityMainGate to mall: 50
+Shortest path: UniversityMainGate Parking ResidentialArea Gym Park AdminBlock RailwayStation Hostel BusStand Mall
+
+Sample Output 02:
+Enter the target location: hostel
+Shortest distance from UniversityMainGate to hostel: 40
+Shortest path: UniversityMainGate Parking ResidentialArea Gym Park AdminBlock RailwayStation Hostel
         </pre>
     </div>
 
