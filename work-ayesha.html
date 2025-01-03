@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms in City Design</title>
+    <style>
+        body {
+            background-color: black;
+            color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        button {
+            background-color: pink;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #ff66b2;
+        }
+
+        .code-container {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Algorithms in City Design</h1>
+    <p>Click on the buttons below to view the respective algorithm code.</p>
+
+    <button onclick="showCode('kmp')">KMP Algorithm - Library Search</button>
+    <button onclick="showCode('bst')">BST Algorithm - Course Registration</button>
+    <button onclick="showCode('fenwick')">Fenwick Tree - Grade Tracking</button>
+
+    <div id="kmp" class="code-container">
+        <h2>KMP Algorithm - Library Search</h2>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+using namespace std;
+
+// Function to compute the LPS array
+void computeLPSArray(const string&amp; pattern, vector&lt;int&gt;&amp; lps) {
+    int m = pattern.length();
+    int len = 0;
+    lps[0] = 0;
+    int i = 1;
+
+    while (i &lt; m) {
+        if (pattern[i] == pattern[len]) {
+            len++;
+            lps[i] = len;
+            i++;
+        } else {
+            if (len != 0) {
+                len = lps[len - 1];
+            } else {
+                lps[i] = 0;
+                i++;
+            }
+        }
+    }
+}
+
+// Function to perform KMP search
+vector&lt;string&gt; KMPSearch(const vector&lt;string&gt;&amp; bookTitles, const string&amp; query) {
+    vector&lt;string&gt; results;
+    for (const string&amp; title : bookTitles) {
+        int n = title.length();
+        int m = query.length();
+        vector&lt;int&gt; lps(m);
+        computeLPSArray(query, lps);
+
+        int i = 0, j = 0; // Pointers for title and query
+        while (i &lt; n) {
+            if (query[j] == title[i]) {
+                i++;
+                j++;
+            }
+            if (j == m) {
+                results.push_back(title);
+                j = lps[j - 1];
+            } else if (i &lt; n && query[j] != title[i]) {
+                if (j != 0) {
+                    j = lps[j - 1];
+                } else {
+                    i++;
+                }
+            }
+        }
+    }
+    return results;
+}
+
+// Example usage
+int main() {
+    vector&lt;string&gt; bookTitles = {
+        "Introduction to Algorithms",
+        "Design Patterns",
+        "Data Structures and Algorithms",
+        "Advanced C++ Programming",
+        "Machine Learning Basics"
+    };
+    string query = "Algorithms";
+
+    vector&lt;string&gt; result = KMPSearch(bookTitles, query);
+    cout &lt;&lt; "Books matching your query:" &lt;&lt; endl;
+    for (const string&amp; title : result) {
+        cout &lt;&lt; "- " &lt;&lt; title &lt;&lt; endl;
+    }
+
+    return 0;
+}
+        </pre>
+    </div>
+
+    <div id="bst" class="code-container">
+        <h2>BST Algorithm - Course Registration</h2>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+struct Node {
+    int courseID;
+    string courseName;
+    Node* left;
+    Node* right;
+
+    Node(int id, string name) : courseID(id), courseName(name), left(nullptr), right(nullptr) {}
+};
+
+// Insert a course into the BST
+Node* insert(Node* root, int courseID, string courseName) {
+    if (!root) return new Node(courseID, courseName);
+    if (courseID &lt; root->courseID) root->left = insert(root->left, courseID, courseName);
+    else root->right = insert(root->right, courseID, courseName);
+    return root;
+}
+
+// Search for a course
+Node* search(Node* root, int courseID) {
+    if (!root || root->courseID == courseID) return root;
+    if (courseID &lt; root->courseID) return search(root->left, courseID);
+    return search(root->right, courseID);
+}
+
+// In-order traversal
+void inOrder(Node* root) {
+    if (root) {
+        inOrder(root->left);
+        cout &lt;&lt; root->courseID &lt;&lt; ": " &lt;&lt; root->courseName &lt;&lt; endl;
+        inOrder(root->right);
+    }
+}
+
+int main() {
+    Node* root = nullptr;
+    root = insert(root, 101, "Data Structures");
+    root = insert(root, 102, "Algorithms");
+    root = insert(root, 103, "Operating Systems");
+
+    cout &lt;&lt; "Course List:" &lt;&lt; endl;
+    inOrder(root);
+
+    int searchID = 102;
+    Node* result = search(root, searchID);
+    if (result) cout &lt;&lt; "Course Found: " &lt;&lt; result->courseName &lt;&lt; endl;
+    else cout &lt;&lt; "Course Not Found." &lt;&lt; endl;
+
+    return 0;
+}
+        </pre>
+    </div>
+
+    <div id="fenwick" class="code-container">
+        <h2>Fenwick Tree - Grade Tracking</h2>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class FenwickTree {
+    vector&lt;int&gt; tree;
+    int n;
+
+public:
+    FenwickTree(int size) : n(size) {
+        tree.resize(n + 1, 0);
+    }
+
+    void update(int index, int value) {
+        while (index &lt;= n) {
+            tree[index] += value;
+            index += index &amp; -index;
+        }
+    }
+
+    int query(int index) {
+        int sum = 0;
+        while (index &gt; 0) {
+            sum += tree[index];
+            index -= index &amp; -index;
+        }
+        return sum;
+    }
+};
+
+int main() {
+    FenwickTree ft(10);
+
+    ft.update(1, 90); // Add marks for student 1
+    ft.update(2, 85); // Add marks for student 2
+    ft.update(3, 75); // Add marks for student 3
+
+    cout &lt;&lt; "Total marks for student 1 to 3: " &lt;&lt; ft.query(3) &lt;&lt; endl;
+
+    return 0;
+}
+        </pre>
+    </div>
+
+    <script>
+        function showCode(id) {
+            document.querySelectorAll('.code-container').forEach(container => {
+                container.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
