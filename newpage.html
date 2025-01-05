@@ -11,27 +11,35 @@
       font-family: Arial, sans-serif;  
     }    
 
-    .navbar {
-      background-color: #1a1a1a; /* Slightly lighter black for the navbar */
-      padding: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    }
+        nav {
+            background-color: #333; /* Dark gray background */
+            padding: 1rem;
+            text-align: left;
+        }
 
-    .navbar .logo {
-      color: #ffcccc; /* Light pink text for the logo */
-      font-size: 24px;
-      font-weight: bold;
-    }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px; /* Space between items */
+        }
 
-    .nav-links a {
-      color: #ffcccc; /* Light pink for links */
-      text-decoration: none;
-      margin-right: 15px;
-    }
+        nav ul li {
+            display: inline; /* Align items horizontally */
+        }
 
-    .nav-links a:hover {
-      color: #ff99cc; /* Brighter pink on hover */
-    }
+        nav ul li a {
+            color: #ffb6c1; /* Light pink text for links */
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #f4f4f4; /* Light text on hover */
+        }
+
 
     .about-section, .team-section {
       background-color: #1a1a1a; /* Slightly lighter black for sections */
@@ -105,15 +113,17 @@
 </head>
 <body>
   <header>
-    <nav class="navbar">
+    
       <div class="logo">CITY DESIGN</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="project.html">Project</a></li>
-      </ul>
-    </nav>
+
   </header>
+      <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="newpage.html">About</a></li>
+            <li><a href="project.html">Project</a></li>
+        </ul>
+    </nav>
 
   <section id="about" class="about-section">
     <h2>About Our Team</h2>
