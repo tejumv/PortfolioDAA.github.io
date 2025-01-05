@@ -42,6 +42,43 @@
             margin-bottom: 1.5rem;
             color: #cccccc; /* Light gray text */
         }
+           .business-ideas-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Allow wrapping if screen is too small */
+            gap: 20px;
+            margin-top: 2rem;
+        }
+           .column {
+            background-color: #333; /* Dark gray box */
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 20%; /* Adjust box width */
+            min-width: 200px; /* Minimum width for small screens */
+            text-align: center;
+        }
+
+        .column h3 {
+            color: #ffb6c1; /* Light pink */
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .column ul {
+            list-style: none;
+            padding: 0;
+            text-align: left; /* Align points to the left */
+        }
+
+        .column li {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            color: #f4f4f4; /* Light text */
+        }
+
+        .highlight {
+            color: #ffb6c1; /* Light pink for highlighted words */
+        }
 
         .github-button {
             display: inline-block;
