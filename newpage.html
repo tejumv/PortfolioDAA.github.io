@@ -82,6 +82,17 @@
       border: 2px solid #ffb6c1; /* Light pink border */
       border-radius: 10px; /* Rounded corners */
     }
+
+    /* Responsive design for small screens */
+    @media (max-width: 768px) {
+      .team-container {
+        flex-direction: column; /* Stack cards vertically */
+      }
+
+      .team-card {
+        max-width: 100%; /* Take full width on smaller screens */
+      }
+    }
   </style>
 </head>
 <body>
