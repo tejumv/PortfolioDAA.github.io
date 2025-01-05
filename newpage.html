@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<head>  
-  <meta charset="UTF-8">   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>City Design</title>       
-  <style>  
-    body { 
-      background-color: #0a0a0a; /* Dark gray/black background */ 
-      color: #f5f5f5; /* Light gray/white text for contrast */ 
-      font-family: Arial, sans-serif;  
-    }    
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Design</title>
+  <style>
+    body {
+      background-color: #0a0a0a; /* Dark gray/black background */
+      color: #f5f5f5; /* Light gray/white text for contrast */
+      font-family: Arial, sans-serif;
+    }
 
     .navbar {
       background-color: #1a1a1a; /* Slightly lighter black for the navbar */
@@ -47,6 +47,16 @@
       padding: 15px;
       margin: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+      display: flex; /* Flexbox for alignment */
+      align-items: flex-start;
+      gap: 20px; /* Spacing between image and content */
+    }
+
+    .team-card img {
+      width: 150px; /* Fixed image width */
+      height: auto; /* Maintain aspect ratio */
+      border: 2px solid #ffb6c1; /* Light pink border */
+      border-radius: 10px; /* Rounded corners */
     }
 
     .team-card h3, .team-card h4 {
@@ -79,26 +89,6 @@
     .explore-btn:hover {
       background-color: #ff99cc; /* Brighter pink on hover */
       color: #000000; /* Ensure text stays black */
-    }
-
-    .image-container {
-      margin-top: 2rem;
-      text-align: center;
-    }
-
-    .image-container img {
-      max-width: 100%; /* Default max width */
-      height: auto; /* Maintain aspect ratio */
-      border: 2px solid #ffb6c1; /* Light pink border */
-      border-radius: 10px;
-    }
-
-    /* Specific style for Tejaswini's image */
-    .profile-image {
-      width: 200px; /* Fixed width */
-      height: auto; /* Maintain aspect ratio */
-      border: 2px solid #ffb6c1; /* Light pink border */
-      border-radius: 10px; /* Rounded corners */
     }
   </style>
 </head>
@@ -137,17 +127,17 @@
       </div>
 
       <div class="team-card">
-        <h3><a href="work-tejaswini.html">Tejaswini M V</a></h3>
-        <div class="image-container">
-          <img src="me.jpg" alt="Tejaswini's Profile Image" class="profile-image">
+        <img src="me.jpg" alt="Tejaswini's Profile Image">
+        <div>
+          <h3><a href="work-tejaswini.html">Tejaswini M V</a></h3>
+          <p>01fe23bci044</p>
+          <h4> 📚 Skills</h4>
+          <ul>
+            <li>C, C++, Python, HTML</li>
+            <li>Data Structures and Algorithms</li>
+          </ul>
+          <a href="https://www.linkedin.com/in/tejaswini-m-v-10507b339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn Profile</a><br>
         </div>
-        <p>01fe23bci044</p>
-        <h4> 📚 Skills</h4>
-        <ul>
-          <li>C, C++, Python, HTML</li>
-          <li>Data Structures and Algorithms</li>
-        </ul>
-        <a href="https://www.linkedin.com/in/tejaswini-m-v-10507b339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn Profile</a><br>
       </div>
 
       <div class="team-card">
@@ -165,3 +155,4 @@
   </section>
 </body>
 </html>
+
