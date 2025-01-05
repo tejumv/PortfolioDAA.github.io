@@ -80,16 +80,26 @@
       background-color: #ff99cc; /* Brighter pink on hover */
       color: #000000; /* Ensure text stays black */
     }
-.image-container {
-            margin-top: 2rem;
-            text-align: center;
-        }
-.image-container img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #ffb6c1; /* Light pink border */
-            border-radius: 10px;
-        }
+
+    .image-container {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%; /* Default max width */
+      height: auto; /* Maintain aspect ratio */
+      border: 2px solid #ffb6c1; /* Light pink border */
+      border-radius: 10px;
+    }
+
+    /* Specific style for Tejaswini's image */
+    .profile-image {
+      width: 200px; /* Fixed width */
+      height: auto; /* Maintain aspect ratio */
+      border: 2px solid #ffb6c1; /* Light pink border */
+      border-radius: 10px; /* Rounded corners */
+    }
   </style>
 </head>
 <body>
@@ -125,13 +135,11 @@
         </ul>
         <a href="#">LinkedIn Profile</a><br>
       </div>
-  <div class="team-card">
-        <h3><a href="work-tejaswini.html">Tejaswini M V</a></h3>
-          <div class="image-container">
-            </div>
 
+      <div class="team-card">
+        <h3><a href="work-tejaswini.html">Tejaswini M V</a></h3>
         <div class="image-container">
-            <img src="me.jpg" alt="Image description">
+          <img src="me.jpg" alt="Tejaswini's Profile Image" class="profile-image">
         </div>
         <p>01fe23bci044</p>
         <h4> 📚 Skills</h4>
@@ -153,7 +161,6 @@
         </ul>
         <a href="https://www.linkedin.com/in/ayesha-maniyar-6771692a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn Profile</a><br>
       </div>
-
     </div>
   </section>
 </body>
