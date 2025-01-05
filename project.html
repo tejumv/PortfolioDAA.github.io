@@ -24,6 +24,35 @@
             margin: 0;
             font-size: 2.5rem;
         }
+                nav {
+            background-color: #333; /* Dark gray background */
+            padding: 1rem;
+            text-align: left;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px; /* Space between items */
+        }
+
+        nav ul li {
+            display: inline; /* Align items horizontally */
+        }
+
+        nav ul li a {
+            color: #ffb6c1; /* Light pink text for links */
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #f4f4f4; /* Light text on hover */
+        }
+
 
         .content {
             padding: 2rem;
@@ -126,6 +155,13 @@
     <header>
         <h1>City Design Project</h1>
     </header>
+        <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="newpage.html">About</a></li>
+            <li><a href="#project">Project</a></li>
+        </ul>
+    </nav>
 
     <div class="content">
         <h2>About the Project</h2>
