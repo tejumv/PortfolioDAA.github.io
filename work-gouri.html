@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Design Project</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            color: #FFC0CB; /* Baby Pink */
+        }
+
+        button {
+            background-color: #FFC0CB; /* Baby Pink */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background-color: #FFB6C1; /* Light Baby Pink */
+        }
+
+        pre {
+            background-color: #2C2C2C;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">CITY DESIGN PROJECT</h1>
+
+    <h2 style="text-align: center;">SDGs Alignment</h2>
+    <h3>SDG 11: Sustainable Cities and Communities</h3>
+    <p>Focuses on making cities inclusive, safe, resilient, and sustainable. Emphasizes efficient urban planning, disaster preparedness, and access to safe housing and transportation. In the context of the project: Ensures effective emergency evacuation planning and infrastructure safety.</p>
+
+    <h3>SDG 3: Good Health and Well-Being</h3>
+    <p>Aims to ensure healthy lives and promote well-being for people of all ages. Highlights reducing health risks, emergency response, and access to quality health systems. In the context of the project: Promotes safety during emergencies, reducing injuries and fatalities through planned evacuation.</p>
+
+    <h3>SDG 4: Quality Education</h3>
+    <p>Ensures inclusive and equitable quality education and promotes lifelong learning opportunities for all. Focuses on equitable access, quality learning environments, and student success. In the context of the project: Enhances fairness in student ranking and allocation systems, supporting academic excellence.</p>
+
+    <h3>SDG 10: Reduced Inequalities</h3>
+    <p>Works to reduce inequalities within and among countries by promoting equitable access and opportunity. Emphasizes fairness in distribution of resources and services. In the context of the project: Fair allocation of hostel rooms ensures equal opportunity for all students, regardless of background.</p>
+
+    <h2 style="text-align: center;">University Sector Algorithms</h2>
+
+    <h3>Emergency Evacuation Planning (Emergency Exit Routes)</h3>
+    <p>
+       - Solution: BFS (Breadth-First Search)  
+    </p>
+    <h4>Why BFS? </h4>
+    <p>- BFS is a graph traversal algorithm that explores all the nodes at the current depth level before moving on to nodes at the next level. It is particularly effective for finding the shortest path in an unweighted graph because it systematically visits all possible paths level by level.</p>
+    <p> - For emergency evacuation planning, BFS ensures the shortest and safest routes to exits are identified quickly. In an emergency, reducing time spent evacuating can save lives, making BFS an ideal choice for mapping exit routes.  
+    </p>
+    <h4>How does it work? </h4> 
+    <p>  - Represent the university layout (rooms, hallways, exits) as a graph where nodes are locations and edges are paths.</p>
+    <p>  - Start from the source node (emergency location) and use a queue to track nodes to visit.  </p>
+    <p>  - Visit all neighboring nodes of the current node, marking them as visited, and enqueue them for further exploration.  </p>
+    <p>  - Repeat until all nodes are explored or the desired exit is found.  
+    </p>
+    <h4>Benefits:</h4>
+     <p> - Finds the shortest path in an unweighted graph, ensuring efficient evacuation.</p>
+      <p>- Works in real-time scenarios with predictable time complexity \(O(V + E)\), where \(V\) is vertices and \(E\) is edges.</p>  
+     <p> - Adapts to different layouts and ensures robust planning.  
+    </p>
+    <button onclick="showCode('evacuation')">Show Code</button>
+    <div id="evacuation" class="output" style="display: none;">
+        <pre>
+            #include < iostream >
+            #include < vector >
+            #include < queue >
+            #include < climits >
+            using namespace std;
+
+            void bfs(int start, vector < vector < int >> &graph, int exitNode, int n, vector < string > &locations) {
+                vector < int > distance(n, INT_MAX);
+                queue < int > q;
+
+                distance[start] = 0;
+                q.push(start);
+
+                while (!q.empty()) {
+                    int current = q.front();
+                    q.pop();
+
+                    for (int neighbor : graph[current]) {
+                        if (distance[neighbor] == INT_MAX) {
+                            distance[neighbor] = distance[current] + 1;
+                            q.push(neighbor);
+                        }
+                    }
+                }
+
+                cout << "From " << locations[start] << " to " << locations[exitNode] << ": ";
+                if (distance[exitNode] == INT_MAX) {
+                    cout << "No route available.\n";
+                } else {
+                    cout << distance[exitNode] << " steps\n";
+                }
+            }
+
+            int main() {
+                int n = 6; //
+                vector  < vector < int  > > graph(n);
+                graph[0].push_back(1); 
+                graph[0].push_back(2); 
+
+                graph[1].push_back(0); 
+                graph[1].push_back(3); 
+
+                graph[2].push_back(0); 
+                graph[2].push_back(3); 
+                graph[2].push_back(4); 
+
+                graph[3].push_back(1); 
+                graph[3].push_back(2); 
+                graph[3].push_back(5); 
+
+                graph[4].push_back(2); 
+                graph[4].push_back(5); 
+
+                graph[5].push_back(3); 
+                graph[5].push_back(4); 
+
+                vector < string > locations = {"Classroom", "Staffroom", "Hostel", "Cafeteria", "Library", "Exit"};
+                int exitNode = 5;
+
+                cout << "Emergency Evacuation System: Shortest Exit Routes\n";
+                cout << "--------------------------------------------------\n";
+
+                for (int i = 0; i < n; i++) {
+                    if (i != exitNode) { 
+                        bfs(i, graph, exitNode, n, locations);
+                    }
+                }
+
+                return 0;
+            }  
+        </pre>
+        <p>Emergency Evacuation System: Shortest Exit Routes</p>
+        <p>--------------------------------------------------</p>
+        <p>From Classroom to Exit: 2 steps</p>
+        <p>From Staffroom to Exit: 2 steps</p>
+        <p>From Hostel to Exit: 2 steps</p>
+        <p>From Cafeteria to Exit: 1 steps</p>
+        <p>From Library to Exit: 1 steps</p>
+    </div>
+
+    <h3>Hostel Room Allocation (Allocating Hostel Rooms to Students)</h3>
+    <p> 
+    - Solution: Heap Sort  
+    </p>
+    <h4>Why Heap Sort?</h4>
+     <p> - Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. A binary heap allows efficient extraction of the smallest or largest element, which is central to sorting and prioritization tasks.</p>  
+     <p>- In hostel room allocation, students might be sorted based on predefined priorities (e.g., seniority, merit, or distance). Heap Sort ensures an efficient and organized sorting of these priorities to facilitate fair room allocation.</p>  
+    <p>- Its in-place nature (doesn’t need extra storage) and \(O(n \log n)\) performance make it suitable for large datasets of student requests.  
+    </p>
+    <h4>How does it work?</h4> 
+       <p>- Build a max-heap (or min-heap) from the list of students based on their priority criteria.</p>  
+     <p> - Repeatedly extract the maximum (or minimum) element from the heap and place it at the end of the list.</p> 
+      <p> - Reheapify the remaining elements to maintain the heap structure.</p>  
+      <p> - Continue until all elements are sorted.  
+    </p>
+    <h4>Benefits:</h4>  
+      <p> - Efficient sorting ensures fair allocation of rooms.</p>  
+       <p>- Handles large datasets effectively with guaranteed time complexity of \(O(n \log n)\). </p> 
+      <p> - Works well in scenarios where prioritization is a key concern.  
+    </p>
+    <button onclick="showCode('heapSort')">Show Code</button>
+    <div id="heapSort" class="output" style="display: none;">
+        <pre>
+            #include < iostream >
+            #include < vector >
+            using namespace std;
+
+            void heapify(vector < int > &arr, int n, int i) {
+                int largest = i;      
+                int left = 2 * i + 1;  
+                int right = 2 * i + 2; 
+
+                if (left < n && arr[left] > arr[largest])
+                    largest = left;
+
+                if (right < n && arr[right] > arr[largest])
+                    largest = right;
+
+                if (largest != i) {
+                    swap(arr[i], arr[largest]);
+                    heapify(arr, n, largest);
+                }
+            }
+
+            void heapSort(vector < int > &arr) {
+                int n = arr.size();
+
+                for (int i = n / 2 - 1; i >= 0; i--)
+                    heapify(arr, n, i);
+
+                for (int i = n - 1; i >= 0; i--) {
+                    swap(arr[0], arr[i]);
+                    heapify(arr, i, 0);
+                }
+            }
+
+            int main() {
+                vector < int > studentIDs = {23, 45, 12, 56, 34, 78, 67};
+
+                cout << "Unsorted Student IDs: ";
+                for (int id : studentIDs)
+                    cout << id << " ";
+                cout << endl;
+
+                heapSort(studentIDs);
+
+                cout << "Sorted Student IDs: ";
+                for (int id : studentIDs)
+                    cout << id << " ";
+                cout << endl;
+
+                return 0;
+            }  
+        </pre>
+        <p>Unsorted Student IDs: 23 45 12 56 34 78 67</p>
+        <p>Sorted Student IDs: 12 23 34 45 56 67 78</p>
+    </div>
+
+    <h3>Student Ranking System (Based on CGPA)</h3>
+    <p>
+       - Solution: Merge Sort  
+    </p>
+    <h4>Why Merge Sort?</h4>  
+      <p> - Merge Sort is a stable, divide-and-conquer sorting algorithm that breaks down the input into smaller subarrays, sorts them, and merges them back into a single sorted array.</p>  
+      <p> - For student rankings, it is crucial to maintain stability—students with the same CGPA retain their original order, ensuring fairness. Merge Sort handles this effectively.</p>  
+      <p> - Its predictable \(O(n \log n)\) performance makes it suitable for ranking large datasets, where accuracy and efficiency are critical.  
+    </p>
+    <h4>How does it work? </h4> 
+      <p> - Divide the array of student CGPAs into two halves until each subarray contains a single element.</p> 
+      <p> - Recursively sort and merge the subarrays by comparing elements from both halves and inserting the smaller element into the final array.</p>
+       <p>- Continue until all elements are merged into a fully sorted array.  
+    </p>
+    <h4>Benefits: </h4> 
+      <p> - Stable sorting ensures fairness in rankings.</p>  
+      <p> - Efficiently handles large datasets with consistent time complexity \(O(n \log n)\).</p> 
+      <p> - Guarantees accurate and reliable ranking results.  
+    </p>
+    <button onclick="showCode('mergeSort')">Show Code</button>
+    <div id="mergeSort" class="output" style="display: none;">
+        <pre>
+            #include < iostream >
+            #include < vector >
+            using namespace std;
+
+            void merge(vector < pair < string, double > > &students, int left, int mid, int right) {
+                int n1 = mid - left + 1;
+                int n2 = right - mid;
+
+                vector < pair < string, double >> leftArr(n1);
+                vector < pair < string, double >> rightArr(n2);
+
+                for (int i = 0; i < n1; i++)
+                    leftArr[i] = students[left + i];
+                for (int i = 0; i < n2; i++)
+                    rightArr[i] = students[mid + 1 + i];
+
+                int i = 0, j = 0, k = left;
+
+                while (i < n1 && j < n2) {
+                    if (leftArr[i].second >= rightArr[j].second) { 
+                        students[k] = leftArr[i];
+                        i++;
+                    } else {
+                        students[k] = rightArr[j];
+                        j++;
+                    }
+                    k++;
+                }
+
+                while (i < n1) {
+                    students[k] = leftArr[i];
+                    i++;
+                    k++;
+                }
+
+                while (j < n2) {
+                    students[k] = rightArr[j];
+                    j++;
+                    k++;
+                }
+            }
+
+            void mergeSort(vector < pair < string, double > > &students, int left, int right) {
+                if (left < right) {
+                    int mid = left + (right - left) / 2;
+
+                    mergeSort(students, left, mid);
+                    mergeSort(students, mid + 1, right);
+
+                    merge(students, left, mid, right);
+                }
+            }
+
+            int main() {
+                vector < pair < string, double > > students = {{"Alice", 3.9}, {"Bob", 3.7}, {"Charlie", 3.7}, {"David", 4.0}, {"Eve", 3.5}};
+
+                cout << "Unsorted Student Rankings: \n";
+                for (auto &student : students)
+                    cout << student.first << ": " << student.second << "\n";
+
+                mergeSort(students, 0, students.size() - 1);
+
+                cout << "\nSorted Student Rankings: \n";
+                for (auto &student : students)
+                    cout << student.first << ": " << student.second << "\n";
+
+                return 0;
+            }  
+        </pre>
+        <p>Unsorted Student Rankings:</p>
+        <p>Alice: 3.9</p>
+        <p>Bob: 3.7</p>
+        <p>Charlie: 3.7</p>
+        <p>David: 4.0</p>
+        <p>Eve: 3.5</p>
+        <p></p>
+        <p>Sorted Student Rankings:</p>
+        <p>David: 4.0</p>
+        <p>Alice: 3.9</p>
+        <p>Bob: 3.7</p>
+        <p>Charlie: 3.7</p>
+        <p>Eve: 3.5</p>
+                        
+     </div>
+
+    <script>
+        function showCode(id) {
+            var element = document.getElementById(id);
+            element.style.display = element.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+  </html>
