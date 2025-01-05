@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>City Design</title>
-  <style>
-    body {
-      background-color: #0a0a0a; /* Dark gray/black background */
-      color: #f5f5f5; /* Light gray/white text for contrast */
-      font-family: Arial, sans-serif;
-    }
+<html lang="en"> 
+<head>  
+  <meta charset="UTF-8">   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>City Design</title>       
+  <style>  
+    body { 
+      background-color: #0a0a0a; /* Dark gray/black background */ 
+      color: #f5f5f5; /* Light gray/white text for contrast */ 
+      font-family: Arial, sans-serif;  
+    }    
 
     .navbar {
       background-color: #1a1a1a; /* Slightly lighter black for the navbar */
@@ -40,23 +40,21 @@
       margin: 20px;
     }
 
+    .team-container {
+      display: flex;
+      flex-wrap: wrap; /* Allow wrapping for smaller screens */
+      justify-content: space-between; /* Space out the cards evenly */
+      gap: 20px; /* Add spacing between cards */
+    }
+
     .team-card {
       background-color: #292929; /* Dark gray for card background */
       border: 1px solid #ffcccc; /* Light pink border */
       border-radius: 8px;
       padding: 15px;
-      margin: 10px;
+      flex: 1; /* Make all cards take equal space */
+      max-width: 30%; /* Limit the max width of each card */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-      display: flex; /* Flexbox for alignment */
-      align-items: flex-start;
-      gap: 20px; /* Spacing between image and content */
-    }
-
-    .team-card img {
-      width: 150px; /* Fixed image width */
-      height: auto; /* Maintain aspect ratio */
-      border: 2px solid #ffb6c1; /* Light pink border */
-      border-radius: 10px; /* Rounded corners */
     }
 
     .team-card h3, .team-card h4 {
@@ -72,23 +70,17 @@
       color: #ff99cc; /* Brighter pink on hover */
     }
 
-    .explore-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #ffcccc; /* Light pink button */
-      color: #000000; /* Black text */
-      text-decoration: none;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
+    .image-container {
       text-align: center;
-      cursor: pointer;
+      margin-bottom: 10px; /* Add spacing below the image */
     }
 
-    .explore-btn:hover {
-      background-color: #ff99cc; /* Brighter pink on hover */
-      color: #000000; /* Ensure text stays black */
+    .profile-image {
+      width: 100%; /* Make the image responsive */
+      max-width: 150px; /* Set a max width for the image */
+      height: auto; /* Maintain aspect ratio */
+      border: 2px solid #ffb6c1; /* Light pink border */
+      border-radius: 10px; /* Rounded corners */
     }
   </style>
 </head>
@@ -127,17 +119,17 @@
       </div>
 
       <div class="team-card">
-        <img src="me.jpg" alt="Tejaswini's Profile Image">
-        <div>
-          <h3><a href="work-tejaswini.html">Tejaswini M V</a></h3>
-          <p>01fe23bci044</p>
-          <h4> 📚 Skills</h4>
-          <ul>
-            <li>C, C++, Python, HTML</li>
-            <li>Data Structures and Algorithms</li>
-          </ul>
-          <a href="https://www.linkedin.com/in/tejaswini-m-v-10507b339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn Profile</a><br>
+        <h3><a href="work-tejaswini.html">Tejaswini M V</a></h3>
+        <div class="image-container">
+          <img src="me.jpg" alt="Tejaswini's Profile Image" class="profile-image">
         </div>
+        <p>01fe23bci044</p>
+        <h4> 📚 Skills</h4>
+        <ul>
+          <li>C, C++, Python, HTML</li>
+          <li>Data Structures and Algorithms</li>
+        </ul>
+        <a href="https://www.linkedin.com/in/tejaswini-m-v-10507b339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn Profile</a><br>
       </div>
 
       <div class="team-card">
@@ -155,4 +147,3 @@
   </section>
 </body>
 </html>
-
